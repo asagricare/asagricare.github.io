@@ -1,17 +1,27 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const imageContainer = document.querySelector(".image-container");
-  const details = document.querySelector(".details");
+  const imageContainers = document.querySelectorAll(".image-container");
 
-  function toggleDetails() {
+  function toggleDetails(event) {
+    const clickedContainer = event.currentTarget;
+    const details = clickedContainer.querySelector(".details");
+
+    // Close details for all other containers
+    imageContainers.forEach(function (container) {
+      if (container !== clickedContainer) {
+        container.querySelector(".details").classList.remove("active");
+      }
+    });
+
+    // Toggle details for the clicked container
     details.classList.toggle("active");
   }
 
-  // For desktop
-  imageContainer.addEventListener("click", toggleDetails);
-
-  // For mobile/touch devices
-  imageContainer.addEventListener("touchstart", function (event) {
-    event.preventDefault(); // Prevents the default touch behavior
-    toggleDetails();
+  // For both desktop and mobile
+  imageContainers.forEach(function (container) {
+    container.addEventListener("click", toggleDetails);
+    container.addEventListener("touchstart", function (event) {
+      event.preventDefault();
+      toggleDetails(event);
+    });
   });
 });
