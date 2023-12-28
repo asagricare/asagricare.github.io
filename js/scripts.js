@@ -16,12 +16,14 @@ document.addEventListener("DOMContentLoaded", function () {
     details.classList.toggle("active");
   }
 
+  function handleTouchEnd(event) {
+    event.preventDefault();
+    toggleDetails(event);
+  }
+
   // For both desktop and mobile
   imageContainers.forEach(function (container) {
     container.addEventListener("click", toggleDetails);
-    container.addEventListener("touchstart", function (event) {
-      event.preventDefault();
-      toggleDetails(event);
-    });
+    container.addEventListener("touchend", handleTouchEnd);
   });
 });
