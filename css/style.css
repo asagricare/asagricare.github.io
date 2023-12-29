@@ -431,7 +431,7 @@ img {
   left: 50%;
   transform: translate(-50%, -50%);
   opacity: 0;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(3, 24, 67, 0.638);
   color: #fff;
   padding: 20px;
   width: 100%;
@@ -466,7 +466,7 @@ img {
 
 /* ===== FOOTER =====*/
 .footer {
-  background-color: var(--second-color);
+  background-color: #12048daa;
   color: #fff;
   text-align: center;
   font-weight: var(--font-semi);
